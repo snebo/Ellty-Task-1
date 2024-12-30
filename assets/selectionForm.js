@@ -37,7 +37,7 @@ export class SelectionForm {
 		button.textContent = 'Done';
 		button.addEventListener('click', (e) => {
 			e.preventDefault();
-			this.#sendFormData();
+			this.sendFormData();
 		});
 
 		footer.className = 'form-footer';
@@ -130,7 +130,7 @@ export class SelectionForm {
 			});
 		});
 	}
-	#sendFormData() {
+	sendFormData() {
 		const form = this.formContainer.querySelector('#selection-form');
 		const data = {};
 		const checkboxes = form.querySelectorAll('input[type="checkbox"]');
@@ -155,9 +155,9 @@ export class SelectionForm {
 
 		console.log('Selected Form Data:', data);
 		// send formData to wherever
-		this.#clearForm();
+		this.clearForm();
 	}
-	#clearForm() {
+	clearForm() {
 		const form = this.formContainer.querySelector('#selection-form');
 		const checkboxes = form.querySelectorAll('input[type="checkbox"]');
 		checkboxes.forEach((checkbox) => {
