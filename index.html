@@ -53,10 +53,28 @@
 			#selection-form-button:hover {
 				background-color: rgba(255, 216, 77, 1);
 			}
-			.selection-form {
-				display: flex;
-				justify-content: space-between;
+
+			#selection-form > .form-option {
+				display: block;
+				position: relative;
+				user-select: none;
 				padding: 8px 0;
+				cursor: pointer;
+			}
+			.form-option input {
+				height: 0;
+				width: 0;
+			}
+			.checkmark {
+				position: absolute;
+				right: 0;
+				top: 50%;
+				height: 23px;
+				width: 23px;
+				border: 1px solid rgba(189, 189, 189, 1);
+				border-radius: 6px;
+				background-color: #ffff;
+				transform: translateY(-50%); /* Gurantees its centered vertically */
 			}
 			.selection-form:hover {
 				cursor: pointer;
@@ -74,27 +92,27 @@
 	</head>
 	<body>
 		<form id="selection-form">
-			<div class="selection-form header">
-				<label for="select-all">All Pages</label>
-				<input type="checkbox" id="select-all" />
-			</div>
+			<label for="select-all" class="form-option"
+				>All Pages <input type="checkbox" id="select-all" />
+				<span class="checkmark"></span
+			></label>
 			<hr />
-			<div class="selection-form options">
-				<label for="page_1">Page 1</label>
-				<input type="checkbox" id="page_1" />
-			</div>
-			<div class="selection-form options">
-				<label for="page_2">Page 2</label>
-				<input type="checkbox" id="page_2" />
-			</div>
-			<div class="selection-form options">
-				<label for="page_3">Page 3</label>
-				<input type="checkbox" id="page_3" />
-			</div>
-			<div class="selection-form options">
-				<label for="page_4">Page 4</label>
-				<input type="checkbox" id="page_4" />
-			</div>
+			<label for="page_1" class="form-option"
+				>Page 1 <input type="checkbox" id="page_1" />
+				<span class="checkmark"></span
+			></label>
+			<label for="page_2" class="form-option"
+				>Page 2 <input type="checkbox" id="page_2" />
+				<span class="checkmark"></span
+			></label>
+			<label for="page_3" class="form-option"
+				>Page 3 <input type="checkbox" id="page_3" />
+				<span class="checkmark"></span
+			></label>
+			<label for="page_4" class="form-option"
+				>Page 4 <input type="checkbox" id="page_4" />
+				<span class="checkmark"></span
+			></label>
 			<div class="form-footer">
 				<hr />
 				<button type="submit" id="selection-form-button">Done</button>
