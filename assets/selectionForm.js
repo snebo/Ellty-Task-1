@@ -155,5 +155,13 @@ export class SelectionForm {
 
 		console.log('Selected Form Data:', data);
 		// send formData to wherever
+		this.clearForm();
+	}
+	clearForm() {
+		const form = this.formContainer.querySelector('#selection-form');
+		const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+		checkboxes.forEach((checkbox) => {
+			checkbox.checked = false;
+		});
 	}
 }
