@@ -4,6 +4,12 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Selection Form</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
 		<style>
 			* {
 				box-sizing: border-box;
@@ -21,16 +27,19 @@
 				flex-direction: column;
 				gap: 10px;
 				width: 370px;
-				height: 326px;
+				min-height: 326px;
 				border: 1px solid #eeeeee;
 				border-radius: 6px;
 				padding: 15px 20px;
 				background-color: #fff;
 				box-shadow: 0px 8px 15px 0px rgba(20, 20, 20, 0.12);
 
+				font-family: 'Montserrat', serif;
+				font-optical-sizing: auto;
 				font-size: 14px;
 				font-weight: 400;
 				line-height: 18.2px;
+				color: rgba(31, 33, 40, 1);
 			}
 			#selection-form-button {
 				width: 100%;
@@ -38,29 +47,56 @@
 				background-color: rgba(255, 206, 34, 1);
 				border: none;
 				border-radius: 4px;
+				cursor: pointer;
 				transition: 150ms ease-in-out;
 			}
 			#selection-form-button:hover {
 				background-color: rgba(255, 216, 77, 1);
 			}
-			.form-option {
+			.selection-form {
 				display: flex;
 				justify-content: space-between;
 				padding: 8px 0;
-				border: 1px solid;
+			}
+			.selection-form:hover {
+				cursor: pointer;
 			}
 			.form-footer {
 				margin-top: auto;
+			}
+			.form-footer > hr {
+				margin-bottom: 15px;
+			}
+			hr {
+				border: 1px solid #eeeeee;
 			}
 		</style>
 	</head>
 	<body>
 		<form id="selection-form">
-			<div class="form-option">
+			<div class="selection-form header">
 				<label for="select-all">All Pages</label>
 				<input type="checkbox" id="select-all" />
 			</div>
+			<hr />
+			<div class="selection-form options">
+				<label for="page_1">Page 1</label>
+				<input type="checkbox" id="page_1" />
+			</div>
+			<div class="selection-form options">
+				<label for="page_2">Page 2</label>
+				<input type="checkbox" id="page_2" />
+			</div>
+			<div class="selection-form options">
+				<label for="page_3">Page 3</label>
+				<input type="checkbox" id="page_3" />
+			</div>
+			<div class="selection-form options">
+				<label for="page_4">Page 4</label>
+				<input type="checkbox" id="page_4" />
+			</div>
 			<div class="form-footer">
+				<hr />
 				<button type="submit" id="selection-form-button">Done</button>
 			</div>
 		</form>
