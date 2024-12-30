@@ -14,7 +14,6 @@ body {
 	flex-direction: column;
 	gap: 10px;
 	width: 370px;
-	/* min-height: 326px; */
 	border: 1px solid #eeeeee;
 	border-radius: 6px;
 	padding: 15px 20px;
@@ -63,39 +62,38 @@ body {
 	background-color: #ffff;
 	transform: translateY(-50%); /* Gurantees its centered vertically */
 
+	/* center the svg element */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 	transition: 200ms ease-in-out;
 }
-.form-option .checkmark:after {
-	width: 10px;
-	height: 10px;
-	left: 50%;
-	color: white;
-	transform: translate(-50%, 0);
+.svg-checkmark {
+	width: 85%;
+	height: 85%;
+	opacity: 0;
+	/* transition: stroke 200ms ease-in-out, transform 200ms ease-in-out; */
 	transition: 200ms ease-in-out;
 }
-.form-option:hover input ~ .checkmark::after {
-	visibility: visible;
+
+.form-option:hover input ~ .checkmark .svg-checkmark {
 	color: rgba(135, 135, 135, 1);
+	opacity: 1;
 }
 .form-option input:checked ~ .checkmark {
 	background-color: rgba(36, 105, 246, 1);
 }
-.form-option input:checked ~ .checkmark:after {
-	visibility: visible;
+.form-option input:checked ~ .checkmark .svg-checkmark {
+	opacity: 1;
+	color: #fff;
 }
 .form-option:hover input:checked ~ .checkmark {
 	background-color: rgba(80, 135, 248, 1);
 }
-.form-option:hover input:checked ~ .checkmark::after {
+.form-option:hover input:checked ~ .checkmark .svg-checkmark {
 	color: #fff;
 }
-
-.checkmark:after {
-	content: '✓';
-	position: absolute;
-	visibility: hidden;
-}
-
 .selection-form:hover {
 	cursor: pointer;
 }

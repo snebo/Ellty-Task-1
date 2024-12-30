@@ -59,11 +59,38 @@ export class SelectionForm {
 
 		const span = document.createElement('span');
 		span.className = 'checkmark';
+		span.appendChild(this.createSvg());
 
 		label.appendChild(checkbox);
 		label.appendChild(span);
 
 		return label;
+	}
+	createSvg() {
+		const svgNamespace = 'http://www.w3.org/2000/svg';
+
+		// Create svg
+		const svg = document.createElementNS(svgNamespace, 'svg');
+		svg.setAttribute('class', 'svg-checkmark');
+		svg.setAttribute('width', '19');
+		svg.setAttribute('height', '14');
+		svg.setAttribute('viewBox', '0 0 19 14');
+		svg.setAttribute('fill', 'none');
+
+		// generate path element
+		const path = document.createElementNS(svgNamespace, 'path');
+		path.setAttribute(
+			'd',
+			'M1 7.6L7.03451 12.9672C7.05497 12.9854 7.08626 12.9837 7.1047 12.9635L18 1'
+		);
+		path.setAttribute('stroke', 'currentColor');
+		path.setAttribute('stroke-linecap', 'round');
+		path.setAttribute('stroke-width', '2');
+
+		// Append the path to the svg
+		svg.appendChild(path);
+
+		return svg;
 	}
 	initSelectAllLogic() {
 		// since theres no need to do this if there is only one option
