@@ -9,5 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		{ name: 'Page 3', id: 'page_3' },
 		{ name: 'Page 4', id: 'page_4' },
 	];
+	//create selection component
 	const selectionForm = new SelectionForm(formContainer, options, types);
+	selectionForm.init();
 });

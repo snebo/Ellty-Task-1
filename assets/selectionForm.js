@@ -8,8 +8,6 @@ export class SelectionForm {
 			console.log('No container provided');
 		}
 		this.hasMultipleOptions = this.formOptions.length > 1 ? true : false;
-
-		this.init();
 	}
 	init() {
 		this.createForm();
@@ -68,6 +66,10 @@ export class SelectionForm {
 		return label;
 	}
 	initSelectAllLogic() {
+		// since theres no need to do this if there is only one option
+		if (this.hasMultipleOptions === false) {
+			return;
+		}
 		const form = this.formContainer.querySelector('#selection-form');
 		const selectAllCheckbox = form.querySelector('#select-all');
 		const checkboxes = form.querySelectorAll(
@@ -82,6 +84,9 @@ export class SelectionForm {
 		});
 	}
 	initCheckBoxDeselectLogic() {
+		if (this.hasMultipleOptions === false) {
+			return;
+		}
 		const form = this.formContainer.querySelector('#selection-form');
 		const selectAllCheckbox = form.querySelector('#select-all');
 		const checkboxes = form.querySelectorAll(
