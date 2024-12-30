@@ -10,11 +10,11 @@ export class SelectionForm {
 		this.hasMultipleOptions = this.formOptions.length > 1 ? true : false;
 	}
 	init() {
-		this.createForm();
-		this.initSelectAllLogic();
-		this.initCheckBoxDeselectLogic();
+		this.#createForm();
+		this.#initSelectAllLogic();
+		this.#initCheckBoxDeselectLogic();
 	}
-	createForm() {
+	#createForm() {
 		const form = document.createElement('form');
 		const hr = document.createElement('hr');
 		const footer = document.createElement('div');
@@ -23,13 +23,13 @@ export class SelectionForm {
 		form.id = 'selection-form';
 		// create a select all option if muliple options exist
 		if (this.hasMultipleOptions) {
-			form.appendChild(this.createFormOptions(this.types, 'select-all'));
+			form.appendChild(this.#createFormOptions(this.types, 'select-all'));
 			const hr = document.createElement('hr');
 			form.appendChild(hr);
 		}
 		// generate the options
 		this.formOptions.forEach((option) => {
-			form.appendChild(this.createFormOptions(option.name, option.id));
+			form.appendChild(this.#createFormOptions(option.name, option.id));
 		});
 		// create footer part
 		button.type = 'submit';
@@ -37,7 +37,7 @@ export class SelectionForm {
 		button.textContent = 'Done';
 		button.addEventListener('click', (e) => {
 			e.preventDefault();
-			this.sendFormData();
+			this.#sendFormData();
 		});
 
 		footer.className = 'form-footer';
@@ -47,7 +47,7 @@ export class SelectionForm {
 		form.appendChild(footer);
 		this.formContainer.appendChild(form);
 	}
-	createFormOptions(name, id) {
+	#createFormOptions(name, id) {
 		const label = document.createElement('label');
 		label.className = 'form-option';
 		label.setAttribute('for', id);
@@ -59,14 +59,14 @@ export class SelectionForm {
 
 		const span = document.createElement('span');
 		span.className = 'checkmark';
-		span.appendChild(this.createSvg());
+		span.appendChild(this.#createSvg());
 
 		label.appendChild(checkbox);
 		label.appendChild(span);
 
 		return label;
 	}
-	createSvg() {
+	#createSvg() {
 		const svgNamespace = 'http://www.w3.org/2000/svg';
 
 		// Create svg
@@ -92,7 +92,7 @@ export class SelectionForm {
 
 		return svg;
 	}
-	initSelectAllLogic() {
+	#initSelectAllLogic() {
 		// since theres no need to do this if there is only one option
 		if (this.hasMultipleOptions === false) {
 			return;
@@ -110,7 +110,7 @@ export class SelectionForm {
 			});
 		});
 	}
-	initCheckBoxDeselectLogic() {
+	#initCheckBoxDeselectLogic() {
 		if (this.hasMultipleOptions === false) {
 			return;
 		}
@@ -130,7 +130,7 @@ export class SelectionForm {
 			});
 		});
 	}
-	sendFormData() {
+	#sendFormData() {
 		const form = this.formContainer.querySelector('#selection-form');
 		const data = {};
 		const checkboxes = form.querySelectorAll('input[type="checkbox"]');
@@ -155,9 +155,9 @@ export class SelectionForm {
 
 		console.log('Selected Form Data:', data);
 		// send formData to wherever
-		this.clearForm();
+		this.#clearForm();
 	}
-	clearForm() {
+	#clearForm() {
 		const form = this.formContainer.querySelector('#selection-form');
 		const checkboxes = form.querySelectorAll('input[type="checkbox"]');
 		checkboxes.forEach((checkbox) => {
