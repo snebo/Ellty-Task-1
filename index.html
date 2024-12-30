@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Selection Form</title>
+		<style>
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			#selection-form {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				width: 370px;
+				height: 326px;
+				border: 1px solid #eeeeee;
+				border-radius: 6px;
+				padding: 15px 20px;
+				background-color: #fff;
+				box-shadow: 0px 8px 15px 0px rgba(20, 20, 20, 0.12);
+
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 18.2px;
+			}
+			#selection-form-button {
+				width: 100%;
+				padding: 10px 20px;
+				background-color: rgba(255, 206, 34, 1);
+				border: none;
+				border-radius: 4px;
+				transition: 150ms ease-in-out;
+			}
+			#selection-form-button:hover {
+				background-color: rgba(255, 216, 77, 1);
+			}
+			.form-option {
+				display: flex;
+				justify-content: space-between;
+				padding: 8px 0;
+				border: 1px solid;
+			}
+			.form-footer {
+				margin-top: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<form id="selection-form">
+			<div class="form-option">
+				<label for="select-all">All Pages</label>
+				<input type="checkbox" id="select-all" />
+			</div>
+			<div class="form-footer">
+				<button type="submit" id="selection-form-button">Done</button>
+			</div>
+		</form>
+	</body>
+</html>
